@@ -1,0 +1,62 @@
+.TH pcb2g 1 "Feb 13, 2015" pcb2g
+.SH NAME
+pcb2g \- PCB bitmap to G-code converter
+.SH SYNOPSIS
+.BR "pcb2g [options]  "<\fIinput_image_file\fP>\ [drill_file]\ [cut_file]
+.SH DESCRIPTION
+\fBpcb2g\fP can be used to convert scanned PCB image into G code for
+CNC machine. Copper in pcb is expanded and minimal isolation lines are
+found. These lines are vectorized and output vector file is generated in
+postprocesor. 
+
+
+This is initial manual page and is incomplette. Please use pcb2g -h to get
+help.
+.SH OPTIONS
+.TP
+.B \-X
+X size of PCB board in mm
+.TP
+.B \-Y
+Y size of PCB board in mm
+.TP
+.B \-O filename
+output G code file (default stderr)
+.TP
+.B \-h
+help
+.TP
+.SH Machine operations parameters
+.TP
+.B \-r
+Retract position in route etching mode
+.TP
+.B \-R
+Retract position in hole drilling mode
+.TP
+.B \-t
+Safe traverse hight
+.TP
+.SH TOOL parameter definition: diameter(mm), radial speed (mm/min), axial
+speed(mm/min), rpm)
+.TP
+.B \-e
+etching tool parameters (default -e0.5,150,150,18000).
+This switch defines parameter for etching tool.
+.TP
+.B \-c
+cutting tool parameters (default -c1,150,150,18000). Same as \fB-e\fP switch, but
+this is used for tool used for cutting holes in board and cutting board
+edges.
+
+.SH POSTPROCESORS
+For now, svg postprocesor and G code postprocesor (optimized
+for use with linuxcnc project).
+
+.SH SEE ALSO
+.PP
+\fBconvert\fR(1),
+\fBlinuxcnc\fR(1)\&.
+.SH AUTHOR
+.B psb2g
+was written by Peter Popovec <popovec@fei.tuke.sk>

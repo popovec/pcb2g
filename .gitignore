@@ -1,0 +1,13 @@
+*.pgm
+*.pbm
+*.ngc
+*.drl
+*.png
+*.plt
+*.svg
+*.o
+*~
+*.so
+pcb2g
+*.kicad_pcb
+*.kicad_pcb-bak

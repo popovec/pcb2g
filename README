@@ -1,0 +1,29 @@
+pcb2g
+=====
+
+pcb2g is converter from image to g-code. Scanned image from PCB (in pbm or
+pgm format) is analyzed and G-code for CNC router is generated.
+
+This software is designed to run on linux and cnc code is designed for
+linuxcnc.
+
+Compilation:
+------------
+
+download source, change directory to source tree, run "make"
+
+Example usage:
+--------------
+
+Convert PCB image (white = isolation black = copper) to .pbm file (in example
+below pcb.ppm) - for example with "convert" from imagemagick software.
+
+Then use pcb.pbm as input for pcb2g. You also need to give information about
+dimension of PCB (arguments after -X and -Y switches ) and specify the
+output file (after -O switch).
+
+./pcb2g -o -b -X 40.132000 -Y 26.924000 -O pcb.ngc pcb.pbm
+
+Examine output file pcb.ngc, use it in linuxcnc.
+
+Please check Licence before use.
